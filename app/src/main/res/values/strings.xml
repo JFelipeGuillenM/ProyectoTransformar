@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Transformar</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="Correo">Correo</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="telefono">Teléfono</string>
+    <string name="signUp">¿No estás registrado?, crea una cuenta</string>
+    <string name="regitrarse">Registrar</string>
+    <string name="correoInvalido">Debe ingresar un correo válido</string>
+    <string name="contrasenaInvalida">La contraseña debe ser mayor a 6 dígitos</string>
+    <string name="nombreInvalido">Ingrese un nombre válido</string>
+    <string name="apellidoInvalido">Ingrese un apellido válido</string>
+    <string name="telefonoInvalido">El teléfono no es válido</string>
+    <string name="rlogico">Razonamiento lógico</string>
+    <string name="rnumerico">Razonamiento Numércio</string>
+    <string name="rverbal">Razonamiento Verbal</string>
+    <string name="iniciarCustionario">Iniciar</string>
+    <string name="verRecords">Ver Records</string>
+
+</resources>

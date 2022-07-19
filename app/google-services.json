@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "570852325327",
+    "firebase_url": "https://transformar-feb68-default-rtdb.firebaseio.com",
+    "project_id": "transformar-feb68",
+    "storage_bucket": "transformar-feb68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570852325327:android:f8df922726c689949644ba",
+        "android_client_info": {
+          "package_name": "com.example.transformar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "570852325327-8rjpjb18t3oq0lkr8f7b183mac7t01ej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDORW4gORB3aKq8WrvXGwNN1KTQaOs5YYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "570852325327-8rjpjb18t3oq0lkr8f7b183mac7t01ej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
