@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +30,8 @@ public class QuizLogico extends AppCompatActivity {
     int puntajeValue = 0;
     int vidaInicial = 3;
     private ProgressBar progressBar;
-    private TextView puntaje, pregunta, opcion1, opcion2, opcion3, opcion4;
+    private TextView puntaje, pregunta;
+    private RadioButton rb_op1, rb_op2, rb_op3, rb_op4;
     private ImageView vidas;
     private List<ListaPreguntas> listaPreguntas = new ArrayList<>();
     private int preguntaActual = 0;
@@ -40,13 +42,15 @@ public class QuizLogico extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_logico);
 
+        rb_op1 = (RadioButton)findViewById(R.id.rb_op1);
+        rb_op2 = (RadioButton)findViewById(R.id.rb_op2);
+        rb_op3 = (RadioButton)findViewById(R.id.rb_op3);
+        rb_op4 = (RadioButton)findViewById(R.id.rb_op4);
+
         puntaje = (TextView)findViewById(R.id.txt_puntaje);
         puntaje.setText(String.valueOf(puntajeValue));
         pregunta = (TextView)findViewById(R.id.txtEnunciado);
-        opcion1 = (TextView)findViewById(R.id.txtOpcion1);
-        opcion2 = (TextView)findViewById(R.id.txtOpcion2);
-        opcion3 = (TextView)findViewById(R.id.txtOpcion3);
-        opcion4 = (TextView)findViewById(R.id.txtOpcion4);
+
 
         setPreguntas();
 
@@ -110,12 +114,11 @@ public class QuizLogico extends AppCompatActivity {
                     listaPreguntas.add(listaPregunta);
                 }
 
-
                 pregunta.setText(listaPreguntas.get(preguntaActual).getPregunta());
-                opcion1.setText(listaPreguntas.get(preguntaActual).getOp1());
-                opcion2.setText(listaPreguntas.get(preguntaActual).getOp2());
-                opcion3.setText(listaPreguntas.get(preguntaActual).getOp3());
-                opcion4.setText(listaPreguntas.get(preguntaActual).getOp4());
+                rb_op1.setText(listaPreguntas.get(preguntaActual).getOp1());
+                rb_op2.setText(listaPreguntas.get(preguntaActual).getOp2());
+                rb_op3.setText(listaPreguntas.get(preguntaActual).getOp3());
+                rb_op4.setText(listaPreguntas.get(preguntaActual).getOp4());
             }
 
             @Override

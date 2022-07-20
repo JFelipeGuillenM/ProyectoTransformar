@@ -18,5 +18,6 @@
     <string name="rverbal">Razonamiento Verbal</string>
     <string name="iniciarCustionario">Iniciar</string>
     <string name="verRecords">Ver Records</string>
+    <string name="seleccionarItem">Seleccionar</string>
 
 </resources>

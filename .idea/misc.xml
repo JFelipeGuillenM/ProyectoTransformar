@@ -4,10 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/drawable/radio_item.xml" value="0.2155" />
+        <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/drawable/radio_item_selected.xml" value="0.2155" />
+        <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/drawable/radio_item_selector.xml" value="0.216" />
         <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/layout/activity_inicio.xml" value="0.2" />
         <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/layout/activity_quiz_logico.xml" value="0.25" />
+        <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/layout/activity_quiz_logico.xml" value="0.22" />
         <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/layout/activity_registro.xml" value="0.25" />
         <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/layout/activity_rlogico_inicio.xml" value="0.25" />
       </map>
