@@ -29,14 +29,6 @@
                 android:text="TextView"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/txtContEnunciado"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="15dp"
-                android:text="TextView"
-                android:textSize="18sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -44,7 +36,7 @@
         android:id="@+id/CardOp1"
         android:layout_width="340dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@color/celeste"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
@@ -178,7 +170,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="45dp"
         android:text="Puntaje:"
         android:textSize="19sp"
         app:layout_constraintStart_toEndOf="@+id/imageView_Vidas"
@@ -189,8 +181,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="45dp"
         android:textSize="19sp"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/barraTiempo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
