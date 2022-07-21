@@ -163,10 +163,8 @@ public class QuizLogico extends AppCompatActivity {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 //Obteniendo todas las preguntas de firebase del tipo lógico
                 for(DataSnapshot dataSnapshot : snapshot.child("logico").getChildren()){
-
                     final String getPregunta = dataSnapshot.child("pregunta").getValue(String.class);
                     final String getOp1 = dataSnapshot.child("opcion1").getValue(String.class);
                     final String getOp2 = dataSnapshot.child("opcion2").getValue(String.class);

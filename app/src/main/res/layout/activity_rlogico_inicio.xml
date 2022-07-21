@@ -73,7 +73,7 @@
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/bntVerRecordsLogico"
+        android:id="@+id/btnVerRecordsLogico"
         style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="200dp"
         android:layout_height="60dp"

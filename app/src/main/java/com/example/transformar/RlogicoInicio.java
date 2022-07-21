@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class RlogicoInicio extends AppCompatActivity {
 
-    private Button btnIniciar;
+    private Button btnIniciar, btnRecords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +17,7 @@ public class RlogicoInicio extends AppCompatActivity {
         setContentView(R.layout.activity_rlogico_inicio);
 
         btnIniciar = (Button)findViewById(R.id.btnIniciarLogico);
+        btnRecords = (Button)findViewById(R.id.btnVerRecordsLogico);
 
         btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,6 +26,16 @@ public class RlogicoInicio extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        btnRecords.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), RecordsLogico.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 
 
