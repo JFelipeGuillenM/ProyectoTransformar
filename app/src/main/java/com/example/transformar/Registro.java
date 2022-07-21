@@ -20,6 +20,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentId;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -37,6 +39,11 @@ public class Registro extends AppCompatActivity {
     FirebaseFirestore db;
     AwesomeValidation awesomeValidation;
 
+    //RealTime Database
+    DatabaseReference mRootReference;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +52,9 @@ public class Registro extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
+        //RealtimeDatabase
+        mRootReference = FirebaseDatabase.getInstance().getReference();
 
         nombre = findViewById(R.id.txtNombreRegistro);
         apellido = findViewById(R.id.txtApellidoRegistro);
@@ -76,23 +86,19 @@ public class Registro extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 userID = firebaseAuth.getCurrentUser().getUid();
-                                DocumentReference documentReference = db.collection("usuarios").document(userID);
 
                                 Map<String, Object> usuario = new HashMap<>();
                                 usuario.put("nombre", nomb);
                                 usuario.put("apellido", apell);
                                 usuario.put("telefono", telf);
                                 usuario.put("correo", mail);
-                                usuario.put("contraseña", pass);
 
-                                documentReference.set(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                mRootReference.child("usuarios").child(userID).setValue(usuario).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
-                                    public void onSuccess(Void unused) {
-                                        Log.d("TAG", "On Succes: Datos registrados con éxito");
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Toast.makeText(Registro.this, "Usuario registrado con éxto", Toast.LENGTH_SHORT).show();
                                     }
                                 });
-
-                                Toast.makeText(Registro.this, "Usuario registrado con éxto", Toast.LENGTH_SHORT).show();
                                 finish();
                             }else{
                                 String error = ((FirebaseAuthException) task.getException()).getErrorCode();
