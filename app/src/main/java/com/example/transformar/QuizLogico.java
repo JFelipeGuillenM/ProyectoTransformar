@@ -3,6 +3,7 @@ package com.example.transformar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.hardware.camera2.TotalCaptureResult;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -15,6 +16,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +27,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.protobuf.StringValue;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class QuizLogico extends AppCompatActivity {
@@ -45,6 +51,12 @@ public class QuizLogico extends AppCompatActivity {
     private int totalPreguntas = 10;
     private int totalPantalla = 10;
     private int currentQuestion = 1;
+    FirebaseAuth firebaseAuth;
+    DatabaseReference mRootReference;
+    private String userID;
+    private String nombreCompleto;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,19 +74,47 @@ public class QuizLogico extends AppCompatActivity {
         pregunta = (TextView)findViewById(R.id.txtEnunciado);
 
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        mRootReference = FirebaseDatabase.getInstance().getReference();
+
+        userID = firebaseAuth.getCurrentUser().getUid();
+
+        mRootReference.child("usuarios").child(userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String nombre = dataSnapshot.child("nombre").getValue(String.class);
+                    String apellido = dataSnapshot.child("apellido").getValue(String.class);
+                    nombreCompleto = nombre+" "+apellido;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(QuizLogico.this, "No se encontró el usuario", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         setPreguntas();
 
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+
+        guardarRecord(puntajeValue, nombreCompleto);
 
     }
 
     public void iniciarContador(){
         timerValue = 100;
         progressBar = (ProgressBar)findViewById(R.id.barraTiempo);
-
         if(countDownTimer!=null){
             countDownTimer.cancel();
         }
-
         countDownTimer = new CountDownTimer(10000, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -105,6 +145,10 @@ public class QuizLogico extends AppCompatActivity {
             vidas.setImageResource(R.drawable.una_vida);
         }else {
             finish();
+            Intent i = new Intent(this, ResultadoLogico.class);
+            i.putExtra("puntaje", puntajeValue);
+            startActivity(i);
+            //guardarRecord(puntajeValue, nombreCompleto);
         }
     }
 
@@ -148,7 +192,12 @@ public class QuizLogico extends AppCompatActivity {
                     public void onClick(View v) {
                         currentQuestion++;
                         if(totalPreguntas == 1){
+                            countDownTimer.cancel();
                             finish();
+                            Intent i = new Intent(v.getContext(), ResultadoLogico.class);
+                            i.putExtra("puntaje", puntajeValue);
+                            startActivity(i);
+                            //guardarRecord(puntajeValue, nombreCompleto);
                         }
                         else if(rb_op1.isChecked()) {
                             itemSelected = listaPreguntas.get(preguntaActual).getOp1();
@@ -176,6 +225,7 @@ public class QuizLogico extends AppCompatActivity {
         });
     }
 
+
     public void verificarRespuesta(@NonNull String selected, String respuesta){
         rbGroup = (RadioGroup)findViewById(R.id.radioGroupOpciones);
         if(selected.equals(respuesta)){
@@ -195,5 +245,42 @@ public class QuizLogico extends AppCompatActivity {
             totalPreguntas--;
         }
     }
+
+    public String obtenerNombre(){
+        firebaseAuth = FirebaseAuth.getInstance();
+        mRootReference = FirebaseDatabase.getInstance().getReference();
+
+        userID = firebaseAuth.getCurrentUser().getUid();
+
+        mRootReference.child("usuarios").child(userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String nombre = dataSnapshot.child("nombre").getValue(String.class);
+                    String apellido = dataSnapshot.child("apellido").getValue(String.class);
+                    nombreCompleto = nombre+" "+apellido;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(QuizLogico.this, "No se encontró el usuario", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return nombreCompleto;
+    }
+
+
+    public void guardarRecord(int puntaje, String nombre){
+        Map<String, Object> record = new HashMap<>();
+        record.put("nombre", nombre);
+        record.put("puntaje", puntaje);
+
+        mRootReference.child("recordsLogico").push().setValue(record);
+    }
+
+
+
 
 }

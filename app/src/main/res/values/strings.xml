@@ -19,5 +19,7 @@
     <string name="iniciarCustionario">Iniciar</string>
     <string name="verRecords">Ver Records</string>
     <string name="seleccionarItem">Seleccionar</string>
+    <string name="resultado">Puntaje final</string>
+    <string name="salirResultado">Volver a inicio</string>
 
 </resources>

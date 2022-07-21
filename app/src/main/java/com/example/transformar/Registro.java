@@ -36,11 +36,12 @@ public class Registro extends AppCompatActivity {
     private String userID;
 
     FirebaseAuth firebaseAuth;
-    FirebaseFirestore db;
+    DatabaseReference mRootReference;
+    //FirebaseFirestore db;
     AwesomeValidation awesomeValidation;
 
     //RealTime Database
-    DatabaseReference mRootReference;
+
 
 
 
@@ -50,11 +51,11 @@ public class Registro extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
+        mRootReference = FirebaseDatabase.getInstance().getReference();
+        //db = FirebaseFirestore.getInstance();
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
         //RealtimeDatabase
-        mRootReference = FirebaseDatabase.getInstance().getReference();
 
         nombre = findViewById(R.id.txtNombreRegistro);
         apellido = findViewById(R.id.txtApellidoRegistro);
