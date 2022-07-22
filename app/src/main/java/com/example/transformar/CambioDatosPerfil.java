@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CambioDatosPerfil extends AppCompatActivity {
-
+    //Declaración de variables
     private EditText nombre, apellido, telefono, correo;
     private Button btnregistrar;
     private String userID;
@@ -44,27 +44,32 @@ public class CambioDatosPerfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cambio_datos_perfil);
 
+        //Obteniendo las instancias de firebase
         firebaseAuth = FirebaseAuth.getInstance();
         mRootReference = FirebaseDatabase.getInstance().getReference();
+        //Obtención del id de firebase del ususario logeado
         userID = firebaseAuth.getCurrentUser().getUid();
 
+        //Declarando el objeto awesome validation para validar campos Edit text
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
+        //Enlazando variables con elementos de la vista
         nombre = (EditText)findViewById(R.id.txtNombreCambio);
         apellido = (EditText)findViewById(R.id.txtApellidoCambio);
         telefono = (EditText)findViewById(R.id.txtTelefonoCambio);
         correo = (EditText)findViewById(R.id.txtCorreoCambio);
         btnregistrar = (Button)findViewById(R.id.btnAceptar);
 
+        //Asignando toolbar con menu al activity
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setOverflowIcon(ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_baseline_menu_24));
         setSupportActionBar(toolbar);
 
 
-        //awesomeValidation.addValidation(this, R.id.txtNombreCambio, "[a-zA-Z\\s]+", R.string.nombreInvalido);
-        //awesomeValidation.addValidation(this, R.id.txtApellidoCambio, "[a-zA-Z\\s]+", R.string.apellidoInvalido);
+        //Asignando validación al edittext teléfono
         awesomeValidation.addValidation(this, R.id.txtTelefonoCambio, RegexTemplate.TELEPHONE, R.string.telefonoInvalido);
 
+        //Trayendo datos de firebase en base al id, para mostrarlos en los edittext
         mRootReference.child("usuarios").child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -81,6 +86,7 @@ public class CambioDatosPerfil extends AppCompatActivity {
             }
         });
 
+        //Evento para registrar los datos
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +95,8 @@ public class CambioDatosPerfil extends AppCompatActivity {
                 String telf =  telefono.getText().toString();
                 String mail = correo.getText().toString();
 
+                //Condición para realizar la actualización de datos
+                //no deben estar vacíos los campos de nombre y apellido y debe cumplirse la validación de awesomevalidation
                 if(!nomb.isEmpty() && !apell.isEmpty() && awesomeValidation.validate()){
                     Map<String, Object> usuario = new HashMap<>();
                     usuario.put("nombre", nomb);
@@ -96,6 +104,7 @@ public class CambioDatosPerfil extends AppCompatActivity {
                     usuario.put("telefono", telf);
                     usuario.put("correo", mail);
 
+                    //Actualización de los datos del usuario en base a su id
                     mRootReference.child("usuarios").child(userID).setValue(usuario).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -110,12 +119,14 @@ public class CambioDatosPerfil extends AppCompatActivity {
         });
     }
 
+    //Cargando menu en el activity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_app, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    //Eventos de los items del menu
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -131,6 +142,7 @@ public class CambioDatosPerfil extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Método para cerar sesión y regresar al activity login
     private void abrirLogin() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
