@@ -4,45 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registro">
+    tools:context=".CambioDatosPerfil">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/transparente"
+        app:title=""
+        tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="285dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="32dp"
+        android:id="@+id/imageView10"
+        android:layout_width="312dp"
+        android:layout_height="218dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_app" />
-
-    <Button
-        android:id="@+id/btnRegistrar"
-        android:layout_width="280dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="@color/lila"
-        android:text="@string/regitrarse"
-        android:textSize="16sp"
-        app:cornerRadius="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:srcCompat="@drawable/perfil" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="342dp"
-        android:layout_height="340dp"
-        android:layout_marginTop="44dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/imageView10">
 
         <EditText
-            android:id="@+id/txtCorreoRegistro"
+            android:id="@+id/txtCorreoCambio"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:autofillHints=""
@@ -50,6 +45,7 @@
             android:drawableStart="@drawable/custom_email_icon"
             android:drawablePadding="12dp"
             android:ems="10"
+            android:enabled="false"
             android:hint="@string/Correo"
             android:inputType="textEmailAddress"
             android:paddingStart="12sp"
@@ -57,7 +53,7 @@
 
 
         <EditText
-            android:id="@+id/txtTelefonoRegistro"
+            android:id="@+id/txtTelefonoCambio"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginTop="12dp"
@@ -74,52 +70,51 @@
             app:layout_constraintTop_toBottomOf="@+id/txtApellidoRegistro" />
 
         <EditText
-            android:id="@+id/txtNombreRegistro"
+            android:id="@+id/txtNombreCambio"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/custom_input"
             android:ems="10"
             android:hint="@string/nombre"
+            android:inputType="textPersonName"
             android:paddingStart="12sp"
             android:paddingEnd="12sp"
-            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtCorreoRegistro" />
 
         <EditText
-            android:id="@+id/txtApellidoRegistro"
+            android:id="@+id/txtApellidoCambio"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/custom_input"
             android:ems="10"
             android:hint="@string/apellido"
+            android:inputType="textPersonName"
             android:paddingStart="12sp"
             android:paddingEnd="12sp"
-            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtNombreRegistro" />
 
-        <EditText
-            android:id="@+id/txtContrasenaRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/custom_password_icon"
-            android:drawablePadding="12dp"
-            android:ems="10"
-            android:hint="@string/contraseña"
-            android:inputType="textPassword"
-            android:paddingStart="12sp"
-            android:paddingEnd="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTelefonoRegistro" />
-
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAceptar"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/verde"
+        android:text="@string/aceptarBtn"
+        android:textSize="18sp"
+        app:cornerRadius="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

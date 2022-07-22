@@ -4,8 +4,33 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/drawable-v24/custom_input.xml" value="0.125" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/drawable-v24/custom_password_icon.xml" value="0.2165" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.125" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/drawable-v24/ic_password_24.xml" value="0.1625" />
         <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/drawable-v24/ic_password_24_focused.xml" value="0.1" />
-        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_main.xml" value="0.15534420289855072" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/drawable/custom_telefono_icon.xml" value="0.2165" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.125" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/drawable/ic_launcher_background.xml" value="0.125" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/drawable/ic_telefono.xml" value="0.1625" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/drawable/ic_telefono_focused.xml" value="0.1035" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_cambio_datos_perfil.xml" value="0.2" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_inicio.xml" value="0.22" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_perfil_usuario.xml" value="0.1" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_quiz_logico.xml" value="0.5" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_quiz_numerico.xml" value="0.25" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_quiz_verbal.xml" value="0.33" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_records_logico.xml" value="0.25" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_records_numerico.xml" value="0.33" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_records_verbal.xml" value="0.18" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_registro.xml" value="0.2" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_resultado_logico.xml" value="0.18" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_resultado_numerico.xml" value="0.33" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_resultado_verbal.xml" value="0.14" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_rlogico_inicio.xml" value="0.15534420289855072" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_rnumerico_inicio.xml" value="0.15534420289855072" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/layout/activity_rverbal_inicio.xml" value="0.15534420289855072" />
+        <entry key="..\:/UNIVERSIDAD/8VO SEMESTRE/DESARROLLO DE APLICACIONES MOVILES/PRIMER PARCIAL/PROYECTO/ProyectoTransformar/app/src/main/res/menu/toolbar_app.xml" value="0.209375" />
         <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/drawable/circle_progress_bar.xml" value="0.2155" />
         <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/drawable/circle_shape.xml" value="0.153" />
         <entry key="..\:/Users/feli-/AndroidStudioProjects/Transformar/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
@@ -42,5 +67,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

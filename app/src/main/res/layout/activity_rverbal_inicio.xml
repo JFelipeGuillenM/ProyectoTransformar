@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_app"
     tools:context=".RverbalInicio">
 
     <androidx.appcompat.widget.Toolbar
@@ -20,7 +19,6 @@
         android:layout_width="285dp"
         android:layout_height="85dp"
         android:layout_marginTop="100dp"
-        android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +29,7 @@
         android:layout_width="290dp"
         android:layout_height="85dp"
         android:layout_marginTop="60dp"
-        android:backgroundTint="#504CDC"
+        android:backgroundTint="@color/azulCard"
         app:cardCornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

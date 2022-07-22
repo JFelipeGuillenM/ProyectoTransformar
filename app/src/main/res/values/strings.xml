@@ -21,5 +21,8 @@
     <string name="seleccionarItem">Seleccionar</string>
     <string name="resultado">Puntaje final</string>
     <string name="salirResultado">Volver a inicio</string>
+    <string name="seleccionarAmbito">Elige el tema que quieres practicar</string>
+    <string name="cambiarDatos">Editar Datos</string>
+    <string name="aceptarBtn">Aceptar</string>
 
 </resources>

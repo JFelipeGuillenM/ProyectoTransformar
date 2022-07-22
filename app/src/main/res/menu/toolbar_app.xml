@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menu_item1"
-        android:title="Acerca de" />
+        android:title="Perfil" />
     <item
         android:id="@+id/menu_item2"
         android:title="Cerrar sesión" />

@@ -12,5 +12,8 @@
     <color name="rojo">#e40f2e</color>
     <color name="celeste">#90c4ec</color>
     <color name="transparente">#0090C4EC</color>
+    <color name="verdeCard">#02AA7E</color>
+    <color name="azulCard">#0A72AA</color>
+    <color name="rojoCard">#E32D58</color>
 
 </resources>

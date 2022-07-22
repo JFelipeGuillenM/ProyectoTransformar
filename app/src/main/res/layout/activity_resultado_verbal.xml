@@ -11,7 +11,7 @@
         android:layout_width="290dp"
         android:layout_height="85dp"
         android:layout_marginTop="80dp"
-        android:backgroundTint="#504CDC"
+        android:backgroundTint="@color/azulCard"
         app:cardCornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,19 +79,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="@string/resultado"
-        android:textSize="24sp"
+        android:textSize="32sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <Button
         android:id="@+id/btnVolverInicio"
-        android:layout_width="210dp"
+        android:layout_width="214dp"
         android:layout_height="60dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="60dp"
         android:backgroundTint="@color/lila"
         android:text="@string/salirResultado"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barra_resultado" />
 

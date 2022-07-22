@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -15,16 +14,12 @@ import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentId;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -64,8 +59,8 @@ public class Registro extends AppCompatActivity {
         contrasena = findViewById(R.id.txtContrasenaRegistro);
         btnregistrar = findViewById(R.id.btnRegistrar);
 
-        awesomeValidation.addValidation(this, R.id.txtNombreRegistro, "[a-zA-Z\\s]+", R.string.nombreInvalido);
-        awesomeValidation.addValidation(this, R.id.txtApellidoRegistro, "[a-zA-Z\\s]+", R.string.apellidoInvalido);
+        //awesomeValidation.addValidation(this, R.id.txtNombreRegistro, "[a-zA-Z\\s]+", R.string.nombreInvalido);
+        //awesomeValidation.addValidation(this, R.id.txtApellidoRegistro, "[a-zA-Z\\s]+", R.string.apellidoInvalido);
         awesomeValidation.addValidation(this, R.id.txtTelefonoRegistro, RegexTemplate.TELEPHONE, R.string.telefonoInvalido);
         awesomeValidation.addValidation(this, R.id.txtCorreoRegistro, Patterns.EMAIL_ADDRESS,R.string.correoInvalido);
         awesomeValidation.addValidation(this, R.id.txtContrasenaRegistro, ".{6,}", R.string.contrasenaInvalida);
@@ -81,7 +76,7 @@ public class Registro extends AppCompatActivity {
                 String apell = apellido.getText().toString();
                 String telf =  telefono.getText().toString();
 
-                if(awesomeValidation.validate()){
+                if(!nomb.isEmpty() && !apell.isEmpty() && awesomeValidation.validate()){
                     firebaseAuth.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {

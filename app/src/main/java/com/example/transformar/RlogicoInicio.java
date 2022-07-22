@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -27,6 +28,7 @@ public class RlogicoInicio extends AppCompatActivity {
         btnIniciar = (Button)findViewById(R.id.btnIniciarLogico);
         btnRecords = (Button)findViewById(R.id.btnVerRecordsLogico);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_baseline_menu_24));
         setSupportActionBar(toolbar);
 
         btnIniciar.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +58,8 @@ public class RlogicoInicio extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_item1:
-                Toast.makeText(this, "Acerca de", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, PerfilUsuario.class);
+                startActivity(i);
                 return true;
             case R.id.menu_item2:
                 FirebaseAuth.getInstance().signOut();
