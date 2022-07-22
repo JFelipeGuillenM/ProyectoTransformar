@@ -61,8 +61,8 @@ public class CambioDatosPerfil extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        awesomeValidation.addValidation(this, R.id.txtNombreCambio, "[a-zA-Z\\s]+", R.string.nombreInvalido);
-        awesomeValidation.addValidation(this, R.id.txtApellidoCambio, "[a-zA-Z\\s]+", R.string.apellidoInvalido);
+        //awesomeValidation.addValidation(this, R.id.txtNombreCambio, "[a-zA-Z\\s]+", R.string.nombreInvalido);
+        //awesomeValidation.addValidation(this, R.id.txtApellidoCambio, "[a-zA-Z\\s]+", R.string.apellidoInvalido);
         awesomeValidation.addValidation(this, R.id.txtTelefonoCambio, RegexTemplate.TELEPHONE, R.string.telefonoInvalido);
 
         mRootReference.child("usuarios").child(userID).addValueEventListener(new ValueEventListener() {
@@ -89,7 +89,7 @@ public class CambioDatosPerfil extends AppCompatActivity {
                 String telf =  telefono.getText().toString();
                 String mail = correo.getText().toString();
 
-                if(awesomeValidation.validate()){
+                if(!nomb.isEmpty() && !apell.isEmpty() && awesomeValidation.validate()){
                     Map<String, Object> usuario = new HashMap<>();
                     usuario.put("nombre", nomb);
                     usuario.put("apellido", apell);
