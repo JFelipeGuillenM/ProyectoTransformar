@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.hardware.camera2.TotalCaptureResult;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +26,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.protobuf.StringValue;
 
 import java.util.ArrayList;
@@ -51,12 +55,11 @@ public class QuizLogico extends AppCompatActivity {
     private int totalPreguntas = 10;
     private int totalPantalla = 10;
     private int currentQuestion = 1;
+    FirebaseFirestore mFirestore;
     FirebaseAuth firebaseAuth;
     DatabaseReference mRootReference;
     private String userID;
     private String nombreCompleto;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,19 +97,13 @@ public class QuizLogico extends AppCompatActivity {
                 Toast.makeText(QuizLogico.this, "No se encontró el usuario", Toast.LENGTH_SHORT).show();
             }
         });
-
         setPreguntas();
-
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-
-        guardarRecord(puntajeValue, nombreCompleto);
-
+        guardarRecord(puntajeValue, obtenerNombre());
     }
 
     public void iniciarContador(){
@@ -115,7 +112,7 @@ public class QuizLogico extends AppCompatActivity {
         if(countDownTimer!=null){
             countDownTimer.cancel();
         }
-        countDownTimer = new CountDownTimer(10000, 100) {
+        countDownTimer = new CountDownTimer(120000, 1200) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timerValue = timerValue-1;
@@ -195,7 +192,7 @@ public class QuizLogico extends AppCompatActivity {
                             Intent i = new Intent(v.getContext(), ResultadoLogico.class);
                             i.putExtra("puntaje", puntajeValue);
                             startActivity(i);
-                            //guardarRecord(puntajeValue, nombreCompleto);
+                            //guardarRecord(puntajeValue, obtenerNombre());
                         }
                         else if(rb_op1.isChecked()) {
                             itemSelected = listaPreguntas.get(preguntaActual).getOp1();
@@ -215,10 +212,8 @@ public class QuizLogico extends AppCompatActivity {
                     }
                 });
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
@@ -259,7 +254,6 @@ public class QuizLogico extends AppCompatActivity {
                     nombreCompleto = nombre+" "+apellido;
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(QuizLogico.this, "No se encontró el usuario", Toast.LENGTH_SHORT).show();
@@ -271,11 +265,19 @@ public class QuizLogico extends AppCompatActivity {
 
 
     public void guardarRecord(int puntaje, String nombre){
+        mFirestore = FirebaseFirestore.getInstance();
         Map<String, Object> record = new HashMap<>();
         record.put("nombre", nombre);
         record.put("puntaje", puntaje);
 
-        mRootReference.child("recordsLogico").push().setValue(record);
+        DocumentReference documentReference = mFirestore.collection("recordsLogico").document(userID);
+
+        documentReference.set(record).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d("tag", "record registrado");
+            }
+        });
     }
 
 
