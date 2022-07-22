@@ -4,30 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Inicio"
-    android:launchMode = "singleInstance">
+    android:background="@drawable/fondo_app"
+    android:launchMode="singleInstance"
+    tools:context=".Inicio">
 
-    <Button
-        android:id="@+id/btnLogOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Cerrar Sesión"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idGrid" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/transparente"
+        app:title=""
+        tools:ignore="MissingConstraints" />
+
 
     <GridLayout
         android:id="@+id/idGrid"
-        android:layout_width="411dp"
-        android:layout_height="402dp"
-        android:layout_below="@id/btnLogOut"
-        android:layout_marginTop="16dp"
+        android:layout_width="355dp"
+        android:layout_height="326dp"
+        android:layout_marginTop="90dp"
         android:columnCount="2"
         android:padding="4dp"
         android:rowCount="2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
@@ -156,10 +154,11 @@
         android:id="@+id/imageView3"
         android:layout_width="285dp"
         android:layout_height="85dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="68dp"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_app" />
+        app:srcCompat="@drawable/logo_app"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,9 +3,13 @@ package com.example.transformar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -19,42 +23,57 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Inicio extends AppCompatActivity {
 
-    private Button bntLogOut;
+
     private CardView rLogico, rNumerico, rVerbal;
-    FirebaseAuth firebaseAuth;
-    DatabaseReference mRootReference;
-    private String userID;
-    private String nombreCompleto;
+    CountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
 
-        bntLogOut = (Button)findViewById(R.id.btnLogOut);
+
         rLogico = (CardView)findViewById(R.id.CardItem);
         rNumerico = (CardView)findViewById(R.id.CardItem2);
         rVerbal = (CardView)findViewById(R.id.CardItem3);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
-        bntLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                abrirLogin();
-            }
-        });
+        setSupportActionBar(toolbar);
+
+        if(countDownTimer!=null){
+            countDownTimer.cancel();
+        }
 
         rLogico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), RlogicoInicio.class);
                 startActivity(i);
-                obtenerNombre();
             }
         });
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_app, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_item1:
+                Toast.makeText(this, "Acerca de", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.menu_item2:
+                FirebaseAuth.getInstance().signOut();
+                abrirLogin();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void abrirLogin() {
@@ -62,28 +81,5 @@ public class Inicio extends AppCompatActivity {
         startActivity(i);
     }
 
-    public String obtenerNombre(){
-        firebaseAuth = FirebaseAuth.getInstance();
-        mRootReference = FirebaseDatabase.getInstance().getReference();
 
-        userID = firebaseAuth.getCurrentUser().getUid();
-
-        mRootReference.child("usuarios").child(userID).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    String nombre = dataSnapshot.child("nombre").getValue(String.class);
-                    String apellido = dataSnapshot.child("apellido").getValue(String.class);
-                    nombreCompleto = nombre+" "+apellido;
-                    Toast.makeText(Inicio.this, nombreCompleto, Toast.LENGTH_SHORT).show();
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(Inicio.this, "No se encontró el usuario", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        return nombreCompleto;
-    }
 }

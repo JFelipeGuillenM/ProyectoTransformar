@@ -11,4 +11,6 @@
     <color name="verde">#37a431</color>
     <color name="rojo">#e40f2e</color>
     <color name="celeste">#90c4ec</color>
+    <color name="transparente">#0090C4EC</color>
+
 </resources>

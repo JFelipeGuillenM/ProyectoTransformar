@@ -61,6 +61,8 @@ public class QuizLogico extends AppCompatActivity {
     private String userID;
     private String nombreCompleto;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +106,7 @@ public class QuizLogico extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         guardarRecord(puntajeValue, obtenerNombre());
+        countDownTimer.cancel();
     }
 
     public void iniciarContador(){
@@ -127,7 +130,9 @@ public class QuizLogico extends AppCompatActivity {
                 setVida();
                 iniciarContador();
             }
-        }.start();
+        };
+        countDownTimer.start();
+
     }
 
     public void setVida(){
@@ -145,7 +150,6 @@ public class QuizLogico extends AppCompatActivity {
             Intent i = new Intent(this, ResultadoLogico.class);
             i.putExtra("puntaje", puntajeValue);
             startActivity(i);
-            //guardarRecord(puntajeValue, nombreCompleto);
         }
     }
 
@@ -270,7 +274,7 @@ public class QuizLogico extends AppCompatActivity {
         record.put("nombre", nombre);
         record.put("puntaje", puntaje);
 
-        DocumentReference documentReference = mFirestore.collection("recordsLogico").document(userID);
+        DocumentReference documentReference = mFirestore.collection("recordsLogico").document();
 
         documentReference.set(record).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
