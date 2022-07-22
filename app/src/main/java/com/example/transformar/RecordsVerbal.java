@@ -12,17 +12,12 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class RecordsLogico extends AppCompatActivity {
+public class RecordsVerbal extends AppCompatActivity {
 
     private TextView nombrePrimero, puntosPrimero, nombreSegundo, puntosSegundo,
             nombreTercero, puntosTercero, nombreCuarto, puntosCuarto, nombreQuinto, puntosQuinto;
@@ -34,7 +29,7 @@ public class RecordsLogico extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_records_logico);
+        setContentView(R.layout.activity_records_verbal);
 
         btnSalir = (Button)findViewById(R.id.btnSalirInicio);
         nombrePrimero = (TextView)findViewById(R.id.txt_nombre1);
@@ -51,7 +46,7 @@ public class RecordsLogico extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection("recordsLogico").orderBy("puntaje", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("recordsVerbal").orderBy("puntaje", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
@@ -88,7 +83,4 @@ public class RecordsLogico extends AppCompatActivity {
             }
         });
     }
-
-
-
 }

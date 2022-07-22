@@ -2,12 +2,10 @@ package com.example.transformar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,61 +13,36 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-public class Inicio extends AppCompatActivity {
+public class RverbalInicio extends AppCompatActivity {
 
-
-    private CardView rLogico, rNumerico, rVerbal;
-    CountDownTimer countDownTimer;
+    private Button btnIniciar, btnRecords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio);
+        setContentView(R.layout.activity_rverbal_inicio);
 
-
-        rLogico = (CardView)findViewById(R.id.CardItem);
-        rNumerico = (CardView)findViewById(R.id.CardItem2);
-        rVerbal = (CardView)findViewById(R.id.CardItem3);
-
+        btnIniciar = (Button)findViewById(R.id.btnIniciarLogico);
+        btnRecords = (Button)findViewById(R.id.btnVerRecordsLogico);
         Toolbar toolbar = findViewById(R.id.toolbar);
-
         setSupportActionBar(toolbar);
 
-        if(countDownTimer!=null){
-            countDownTimer.cancel();
-        }
-
-        rLogico.setOnClickListener(new View.OnClickListener() {
+        btnIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), RlogicoInicio.class);
+                Intent i = new Intent(v.getContext(), QuizVerbal.class);
                 startActivity(i);
             }
         });
 
-        rNumerico.setOnClickListener(new View.OnClickListener() {
+        btnRecords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), RnumericoInicio.class);
+                Intent i = new Intent(v.getContext(), RecordsVerbal.class);
                 startActivity(i);
             }
         });
-
-        rVerbal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), RverbalInicio.class);
-                startActivity(i);
-            }
-        });
-
-
     }
 
     @Override
@@ -96,6 +69,4 @@ public class Inicio extends AppCompatActivity {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
-
-
 }

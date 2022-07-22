@@ -16,6 +16,30 @@
         android:theme="@style/Theme.Transformar"
         tools:targetApi="31">
         <activity
+            android:name=".ResultadoNumerico"
+            android:exported="false" />
+        <activity
+            android:name=".RecordsNumerico"
+            android:exported="false" />
+        <activity
+            android:name=".QuizNumerico"
+            android:exported="false" />
+        <activity
+            android:name=".RnumericoInicio"
+            android:exported="false" />
+        <activity
+            android:name=".ResultadoVerbal"
+            android:exported="false" />
+        <activity
+            android:name=".RecordsVerbal"
+            android:exported="false" />
+        <activity
+            android:name=".QuizVerbal"
+            android:exported="false" />
+        <activity
+            android:name=".RverbalInicio"
+            android:exported="false" />
+        <activity
             android:name=".RecordsLogico"
             android:exported="false" />
         <activity
